@@ -1,0 +1,43 @@
+
+
+@keyframes scale-in {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+@keyframes scaleX-in {
+    from {transform: scaleX(0);}
+    to {transform: scaleX(1);}
+}
+
+@keyframes grow-scale-in {
+    from {transform: scale(0);}
+    to {transform: scale(38);}
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 0.3;}
+}
+
+@keyframes pump {
+    0 {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1); }
+}
+
+@keyframes pump {
+    0 {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1); }
+}
+
+@keyframes come-from-left {
+    from {transform: translate3d(-200%, 0, 0);}
+    to {transform: translate3d(0, 0, 0);;}
+}
+
+@keyframes border {
+    from { border-width: 0px !important;}
+    to { border-width: 0px 0px 2px 0px !important;}
+}

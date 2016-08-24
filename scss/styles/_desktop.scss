@@ -1,0 +1,31 @@
+$desktop-item-width: 750px;
+@media screen and (min-width: 1024px) {
+
+    .bar-list__category {
+      width: $desktop-item-width;
+      margin: 0 auto;
+      padding: 16px 30px 16px 0;
+      font-weight: 300;
+      .category-name { font-size: 18px; }
+    }
+
+    .bar-list__item {
+      min-height: $desktop-item-width / 2.5;
+      width: $desktop-item-width;
+      margin: 20px auto;
+      padding: 30px;
+      h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .bar-list__distance {
+      top: $desktop-item-width / 2.5 - 85px;
+    }
+
+
+}

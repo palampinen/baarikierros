@@ -1,0 +1,13 @@
+
+
+.bar.bar-header {
+    -webkit-box-shadow:none !important;
+    box-shadow:none !important;
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none;
+    border-bottom: none;
+    border-radius: 0;
+
+    .button.button-icon:before {font-size: 22px;}
+}

@@ -1,0 +1,38 @@
+@keyframes round {
+  to {
+    stroke-dashoffset: 50;
+  }
+}
+
+svg.progress {
+    -webkit-transform: rotate(-90deg) scale(1.2);
+    transform: rotate(-90deg) scale(1.2);
+    display: block;
+    position: absolute;
+    top:-8px;
+    right: 2px;
+    background: transparent;
+    z-index: 10;
+}
+
+.circle_base {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  stroke-dasharray: 100; /* this value is the pixel crcumference of the circle */
+  stroke-dashoffset: 0;
+  stroke-width: 3;
+  stroke: #ddd;
+}
+
+.circle_animation {
+  position: relative;
+  z-index: 2;
+  stroke-dasharray: 100; /* this value is the pixel crcumference of the circle */
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.9s ease;
+  stroke: $balanced;
+  stroke-width:2;
+}

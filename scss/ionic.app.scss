@@ -1,0 +1,70 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+$assertive:                       #E74C53 !default;
+
+
+$font-family-sans-serif:          'Work Sans', '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+@import "scss/styles/style";
+
+
+.loader {
+  padding: 33vh 0;
+  text-align: center;
+  svg {
+    width: 40px;
+    height: 40px;
+    stroke: $assertive;
+  }
+}
+
+ion-tabs.tabs-striped.tabs-color-active-assertive .tab-item.activated{
+  border: none !important;
+}
+ion-tabs.tabs-striped.tabs-color-active-assertive .tab-item.tab-item-active {
+  position: relative;
+  border: none !important;
+  &:after {
+    animation: scaleX-in 0.3s cubic-bezier(.62,.15,.5,1.5);
+    width: 100%;
+    height: 2px;
+    background: $assertive;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+  }
+}
+
+.tabs {
+  border: none !important;
+  background-size: 100% 0;
+  .icon {
+    font-size: 24px;
+    padding-top: 5px;
+  }
+  .tab-title {
+    font-size: 9px;
+  }
+}
