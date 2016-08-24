@@ -1,6 +1,8 @@
 Baarikierros
 =====================
 
+![Baarikierros](https://raw.githubusercontent.com/palampinen/baarikierros/master/baarikierros.png)
+
 Baarikierros is an app to check bars / restaurants / whatever locations on the go!
 
 ## How to start
@@ -32,18 +34,21 @@ Let's assume you created your app called `awesomeapp` so Firbase url for your ap
 ```
 name: 'Bronx Beer Deli'
 address: 'Danger Street 123, New york'
-category: 'Bronx'
+category: 'bronx'
 image: 'IMAGEURL'
-lat: ''
-lon: ''
+lat: 61.123
+lon: 25.321
 ```
 
-After these steps your Firebase url for the app config should be `https://awesomeapp.firebaseio.com/events/restaurantday`
+![Firebase](https://raw.githubusercontent.com/palampinen/baarikierros/master/firebase-hierarchy.png)
+
+After these steps your Firebase url for the app config should be:
+`https://awesomeapp.firebaseio.com/events/restaurantday`
 
 
 ## DEMO
 
-[baarikierros.top](https://baarikierros.top/)
+[baarikierros.top](http://baarikierros.top/)
 
 
 ## Licence
