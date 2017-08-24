@@ -1,0 +1,89 @@
+.view--home {
+  display: block;
+  background: $stable;
+
+  h1, h2 {
+    font-weight: 600;
+    font-size: 26px;
+    color: $assertive;
+    padding: 0;
+    margin: 0 0 4px;
+  }
+
+  h2 {
+    color: #555;
+  }
+}
+
+.home__content {
+  max-width: 1300px;
+  margin: 0 auto;
+  background: $light;
+}
+
+.home__intro {
+  padding: 20px;
+  margin: 0px 0 25px;
+  font-size: 26px;
+  line-height: 1.5;
+  color: #666;
+  font-weight: 300;
+  max-width: 500px;
+
+  .brand {
+    width: 44px;
+    margin: 0 0 40px;
+    display: block;
+    animation: subtle-come-from-bottom 0.4s cubic-bezier(.87,-.41,.19,1.44);
+    .brand-img {
+      width: 100%;
+    }
+  }
+}
+
+.home__hero {
+  height: 300px;
+  position: relative;
+
+  &:after {
+    background-image: url('https://images.unsplash.com/photo-1480455550638-f32e7af53106?dpr=2&auto=compress,format&fit=crop&w=1400&h=800&q=80&cs=tinysrgb&crop=');
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    animation: fade-in 0.3s;
+
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+
+  .home__hero {
+    height: 600px;
+    &:after {
+      background-position: 50% 0%;
+    }
+  }
+
+  .home__intro {
+    max-width: 800px;
+    padding-left: 40px;
+
+    h1 {
+      font-size: 34px;
+    }
+    div {
+      font-size: 28px;
+    }
+  }
+
+}
+

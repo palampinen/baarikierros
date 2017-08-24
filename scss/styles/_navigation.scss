@@ -1,0 +1,42 @@
+.tabs {
+  border: none !important;
+  background-size: 100% 0;
+
+  background-image: none !important;
+  -webkit-box-shadow: 0 -2px 4px rgba(0,0,0,.1);
+  box-shadow: 0 -2px 4px rgba(0,0,0,.1);
+  padding-top: 0 !important;
+  .icon {
+    font-size: 24px;
+    // padding-top: 5px;
+  }
+
+  .tab-title {
+    font-size: 10px;
+  }
+
+}
+
+ion-tabs.tabs-color-active-assertive .tab-item {
+  color: #70757a;
+}
+
+
+.bar-header {
+  .link-logo {
+    padding: 12px 15px;
+    margin: -5px;
+    background: transparent;
+    img {
+      width: 19px;
+    }
+  }
+
+  .title {
+    .platform-android & {
+      font-size: $bar-title-font-size;
+    }
+    color: $dark;
+    font-weight: 600;
+  }
+}

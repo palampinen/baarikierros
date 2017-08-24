@@ -1,3 +1,7 @@
 .view-container .pane, .view {
   background: $stable;
 }
+
+.fade-in {
+  animation: fade-in 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}

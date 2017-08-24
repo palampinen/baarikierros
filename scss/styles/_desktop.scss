@@ -1,5 +1,5 @@
 $desktop-item-width: 750px;
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 800px) {
 
     .bar-list__category {
       width: $desktop-item-width;
@@ -23,7 +23,7 @@ $desktop-item-width: 750px;
       }
     }
 
-    .bar-list__distance {
+    .bar-list__distance, .hop-count{
       top: $desktop-item-width / 2.5 - 85px;
     }
 

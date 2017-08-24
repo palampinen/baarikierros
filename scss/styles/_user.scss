@@ -1,0 +1,28 @@
+
+.user__kpis {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 300px;
+  margin: 30px auto 0;
+
+
+  .kpi {
+    display: block;
+    text-align: center;
+
+
+    .value {
+      font-size: 32px;
+      line-height: 1.2;
+      display: block;
+      color: $assertive;
+    }
+    .title {
+      color: rgba(0,0,0,.4);
+      text-transform: uppercase;
+    }
+  }
+}

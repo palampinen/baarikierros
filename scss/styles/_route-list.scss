@@ -1,0 +1,125 @@
+
+.route__list {
+  background: $light;
+  padding: 40px 20px 40px;
+  min-height: 400px;
+
+
+
+  .route__list__items {
+    margin: 0 -20px 0;
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+
+  $item-count: 50;
+  $item-initial-delay: 500ms; // animations start after this
+  $item-delay: 200ms; // added animation delay for each item
+
+  .route.item {
+
+    transform: scale(0); // need to have these before animation kicks in
+    transform-origin: 0 0;
+    animation: subtle-come-from-bottom  0.33s ease-in-out;
+    animation-fill-mode: forwards; // to persist state after animation
+    @for $i from 1 through $item-count {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * $item-delay + $item-initial-delay;
+      }
+    }
+
+    display: inline-block;
+    float: left;
+    border: none;
+    font-size: 12px;
+    background: transparent;
+    width: 50%;
+    padding: 15px 20px;
+    margin: 0 0;
+
+    .item-content {
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  .route__img {
+    background-color: #eee;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    position: relative;
+    margin: 0 0 5px;
+    padding: 0;
+
+    animation: fade-in 0.2s;
+    transition: background 0.2s;
+    width: 100%;
+    height: 200px;
+    display: block;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      font-size: 100px;
+      color: $light;
+    }
+
+    &.fallback {
+      -webkit-filter: grayscale(80%);
+      filter: grayscale(80%);
+      &:after {
+        background: linear-gradient(205deg, transparent 0, $stable 100%);
+        position: absolute;
+        left: 0; right: 0; bottom: 0; top: 0;
+        opacity: 0.55;
+        content: '';
+        display: block;
+      }
+    }
+  }
+
+  .route__info {
+    white-space: normal;
+    display: block;
+    height: 84px;
+    overflow: hidden;
+  }
+
+  .route__title {
+    font-weight: 600;
+    color: $assertive;
+  }
+
+  .route--add {
+    .route__description {
+      font-style: italic;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .route__list {
+    padding-left: 40px;
+
+    .route__list__items {
+      margin: 0 -20px 0 0;
+    }
+    .route.item {
+      padding: 15px 0px;
+      margin: 0 20px 0 0;
+      width: 150px;
+      .route__img {
+        height: 180px;
+      }
+    }
+  }
+
+}

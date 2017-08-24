@@ -1,0 +1,54 @@
+
+.infowindow {
+  display: block;
+  text-align: center;
+  font-family: $font-family-sans-serif;
+}
+
+
+.infowindow__image {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: 50% 50%;
+  margin: 5px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.infowindow__title {
+  display: block;
+  font-weight: bold;
+  color: $assertive;
+  font-size: 1.3em;
+  margin: 15px auto 5px;
+}
+
+.infowindow--success {
+  .infowindow__image {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba($balanced, 0.2);
+      border-radius: 50%;
+    }
+    .checkmark {
+      font-size: 40px;
+      color: #FFF;
+      z-index: 2;
+      position: relative;
+      top: 18px;
+    }
+  }
+  .infowindow__status {
+    color: darken($balanced, 10%);
+    font-weight: bold;
+  }
+}

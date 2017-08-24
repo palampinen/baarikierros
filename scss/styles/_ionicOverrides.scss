@@ -1,8 +1,8 @@
 
-
+// HEADER
 .bar.bar-header {
-    -webkit-box-shadow:none !important;
-    box-shadow:none !important;
+    // -webkit-box-shadow: none !important;
+    // box-shadow:none !important;
     border: 0px !important;
     border-bottom-color: transparent !important;
     background-image: none;
@@ -10,4 +10,21 @@
     border-radius: 0;
 
     .button.button-icon:before {font-size: 22px;}
+    .button.button-icon { padding-left: 13px; padding-right: 13px; }
+}
+
+.bar.bar-header .button.button-icon {
+  padding-top: 4px;
+}
+
+ion-modal-view .bar.bar-header {
+  -webkit-box-shadow: 0 2px 15px rgba(0,0,0,.1) !important;
+  box-shadow: 0 2px 15px rgba(0,0,0,.1) !important;
+}
+
+
+// Animation
+.slide-in-up.ng-enter, .slide-in-up > .ng-enter {
+  -webkit-transition: all cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
+  transition: all cubic-bezier(0.25, 0.8, 0.25, 1) 0.25s;
 }

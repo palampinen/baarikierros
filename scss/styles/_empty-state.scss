@@ -1,0 +1,31 @@
+.empty-state {
+  text-align: center;
+  padding: 20vh 20px;
+
+  color: #999;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.empty-state__icon {
+  font-size: 100px;
+  color: #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 30px;
+  position: relative;
+
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 40%;
+  //   left: 50%;
+  //   height: 8px;
+  //   background: #ddd;
+  //   border-bottom: 4px solid $stable;
+  //   width: 120px;
+  //   margin: 0 0 0 -55px;
+  //   transform: rotate(-30deg);
+  // }
+}
