@@ -1,0 +1,19 @@
+  <ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-light">
+      <h1 class="title">Hops in {{detailBar.name}}</h1>
+      <button class="button button-clear button-icon ion-android-close" ng-click="closeHopsModal()"></button>
+    </ion-header-bar>
+    <ion-content class="modal--hops">
+
+    <ion-list class="list" ng-repeat="(userId, hop) in detailBar.hops">
+      <ion-item class="hop">
+        <span class="hop__time">{{formatVisitTime(hop.createdAt)}}</span>
+        <span class="hop__content">
+          <span class="hop__user">{{users[userId].name || 'Unnamed Bar Hopper'}}</span>
+          <span class="hop__message" ng-if="hop.message">{{hop.message}}</span>
+        </span>
+      </ion-item>
+    </ion-list>
+
+    </ion-content>
+  </ion-modal-view>

@@ -1,15 +1,20 @@
-<ion-view view-title="Baarikierros" hide-nav-bar="true">
-  <ion-content overflow-scroll="true">
+<ion-view view-title="{{barhopInfo.name || 'Barhop'}}" hide-nav-bar="false">
+  <ion-nav-buttons side="left">
+    <a ng-href="/" class="link-logo">
+      <img src="img/logo.png" />
+    </a>
+  </ion-nav-buttons>
 
+  <ion-content overflow-scroll="true" class="fade-in" ion-sticky>
 
     <div class="loader" ng-if="!locations">
       <ion-spinner icon="crescent"></ion-spinner>
     </div>
 
+    <div ng-if="loaded && !categories.length" ng-include="'templates/empty-state.html'"></div>
+
     <ion-list class="bar-list" ng-repeat="category in categories | orderBy : sortByDistance : false">
-      <ion-item
-        class="item-divider bar-list__category"
-      >
+      <ion-item class="item-divider bar-list__category">
         <span class="category-name">{{category}}</span>
         <span class="visited-count">
           {{getVisitedPlaces(locations[category]) / locations[category].length * 100 | number:0}}%
@@ -27,14 +32,14 @@
 
       <ion-item
         class="item-icon-right bar-list__item"
-        ng-class="{visited: place.visited}"
+        ng-class="{visited: place.hops[userId]}"
         ng-repeat="(i, place) in locations[category]" type="item-text-wrap">
         <span class="bar-list__item__img" style="background-image:url('{{place.image || placholderBarImg}}')">
         </span>
 
         <span class="bar-list__item__content">
         <h2>{{place.name}}</h2>
-        <p class="ion-android-pin address"> {{place.address}}</p>
+        <p ng-if="place.address" class="ion-android-pin address"> {{place.address}}</p>
 
 
         <span class="bar-list__button">
@@ -43,33 +48,37 @@
             <span
               class="check-circle"
               ng-class="{
-                success:place.visited, ready:!place.visited && locationInfos[category][i].close
+                success:place.hops[userId], ready:!place.hops[userId] && locationInfos[category][i].close
               }"
             >
               <i class="checkmark ion-android-done"></i>
             </span>
 
-<!--
-            <span ng-if="place.visited" class="success">
-              <i class="icon icon-success ion-android-done"></i>
-            </span>
-
--->
-            <span class="info-text" ng-if="!place.visited&&locationInfos[category][i].close">
+            <span class="info-text" ng-if="!place.hops[userId] && locationInfos[category][i].close">
               <span class="text ready">Check in</span>
             </span>
 
-            <span class="info-text" ng-if="place.visited">
-              <span class="text success">{{getTimeAgo(place.visitedAt)}}</span>
+            <span class="info-text" ng-if="place.hops[userId]">
+              <span class="text success">{{getTimeAgo(place.hops[userId].createdAt)}}</span>
             </span>
 
-            <span class="info-text" ng-if="!place.visited && !locationInfos[category][i].close">
-              <span class="text">Liian kaukana</span>
+            <span class="info-text" ng-if="!place.hops[userId] && !locationInfos[category][i].close">
+              <span class="text">Too far away</span>
             </span>
-
-            <a ng-href="tel://{{place.phone}}" ng-if="place.phone" class="link--phone ion-android-call" ></a>
-
           </span>
+
+
+          <span
+          ng-click="openHopsModal(place)"
+          class="hop-count ion-android-people"
+          ng-if="getPlaceVisitors(place) > 0"
+          >
+            {{getPlaceVisitors(place)}}
+          </span>
+
+          <!--
+          <a ng-href="tel://{{place.phone}}" ng-if="place.phone" class="link--phone ion-android-call" ></a>
+          -->
         </span>
 
 
@@ -79,7 +88,6 @@
       </span>
       </ion-item>
     </ion-list>
-
 
   </ion-content>
 </ion-view>

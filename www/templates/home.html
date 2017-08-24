@@ -1,0 +1,56 @@
+<ion-view hide-nav-bar="true">
+  <ion-content class="view--home" overflow-scroll="true">
+    <div class="home__content">
+      <div class="home__intro">
+        <div class="brand">
+          <img class="brand-img" src="img/logo.png" />
+        </div>
+
+        <h1>Barhop</h1>
+        <div>Find the nicest combination of bars and pubs in the city.</div>
+      </div>
+
+      <div class="home__hero"></div>
+
+
+      <div class="route__list">
+        <!-- <h2>Your Routes</h2> -->
+        <h2>Barhopping Routes</h2>
+
+        <div class="route__list__items">
+          <ion-item
+            ng-repeat="route in routes"
+            class="route"
+            href="/{{route.$id}}/"
+          >
+
+            <div
+            class="route__img"
+            ng-class="{fallback: !route.img}"
+            style="background-image: url('{{route.img || 'img/hop-default.jpg'}}')"
+            ></div>
+
+            <span class="route__info">
+              <span class="route__title">{{route.name}}</span>
+              <span class="route__description">{{route.description}}</span>
+            </span>
+
+          </ion-item>
+
+          <ion-item class="route route--add" ng-if="routes.length" >
+            <div class="route__img"><i class="icon ion-android-add"></i></div>
+            <span class="route__info">
+              <span class="route__title">Add new route!<br /></span>
+              <span class="route__description">Adding new routes will be available soon!</span>
+            </span>
+          </ion-item>
+        </div>
+
+      </div>
+
+
+      <div ng-include="'templates/public-footer.html'"></div>
+    </div>
+  </ion-content>
+</ion-view>
+
