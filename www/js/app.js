@@ -5,7 +5,14 @@
 // the 2nd parameter is an array of 'requires'
 // 'liquomsa.services' is found in services.js
 // 'liquomsa.controllers' is found in controllers.js
-angular.module('liquomsa', ['ionic', 'config', 'liquomsa.controllers', 'liquomsa.services', 'firebase'])
+angular.module('barhop', [
+  'ionic',
+  'config',
+  'barhop.controllers',
+  'barhop.services',
+  'ion-sticky',
+  'firebase'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +30,6 @@ angular.module('liquomsa', ['ionic', 'config', 'liquomsa.controllers', 'liquomsa
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
 .config(function($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   // $locationProvider.hashPrefix('');
@@ -42,25 +48,31 @@ angular.module('liquomsa', ['ionic', 'config', 'liquomsa.controllers', 'liquomsa
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+
+  .state('info', {
+    url: '/',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeCtrl',
+  })
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
+  .state('tab', {
+    url: '/:barhopId',
     abstract: true,
+    controller: 'BarhopCtrl',
     templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
   .state('tab.locations', {
-      url: '/locations',
-      views: {
-        'tab-locations': {
-          templateUrl: 'templates/tab-locations.html',
-          controller: 'LocationsCtrl'
-        }
+    url: '/',
+    views: {
+      'tab-locations': {
+        templateUrl: 'templates/tab-locations.html',
+        controller: 'LocationsCtrl'
       }
-    })
-
+    }
+  })
 
   .state('tab.map', {
     url: '/map',
@@ -70,9 +82,18 @@ angular.module('liquomsa', ['ionic', 'config', 'liquomsa.controllers', 'liquomsa
         controller: 'MapCtrl'
       }
     }
+  })
+  .state('tab.me', {
+    url: '/me',
+    views: {
+      'tab-me': {
+        templateUrl: 'templates/tab-me.html',
+        controller: 'SettingsCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/locations');
+  $urlRouterProvider.otherwise('/');
 
 });
