@@ -24,6 +24,17 @@ angular.module('liquomsa', ['ionic', 'config', 'liquomsa.controllers', 'liquomsa
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  // $locationProvider.hashPrefix('');
+  $locationProvider.html5Mode(true);
+
+  $ionicConfigProvider.tabs.position('bottom');
+  $ionicConfigProvider.tabs.style('standard');
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.views.transition('none');
+  $ionicConfigProvider.views.maxCache(0);
+  $ionicConfigProvider.scrolling.jsScrolling('false');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
