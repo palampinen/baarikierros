@@ -5,6 +5,9 @@ Baarikierros
 
 Baarikierros is an app to check bars / restaurants / whatever locations on the go!
 
+[Check out live version](http://liquomsa.firebaseapp.com)
+
+
 ## How to start
 
 ```
@@ -44,12 +47,6 @@ lon: 25.321
 
 After these steps your Firebase url for the app config should be:
 `https://awesomeapp.firebaseio.com/events/restaurantday`
-
-
-## DEMO
-
-[baarikierros.top](http://baarikierros.top/)
-
 
 ## Licence
 
