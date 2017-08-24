@@ -1,16 +1,20 @@
-<ion-view view-title="On Map" hide-nav-bar="true">
-  <ion-content>
+<ion-view view-title="{{barhopInfo.name || 'Barhop'}}" hide-nav-bar="false">
+  <ion-nav-buttons side="left">
+    <a ng-href="/" class="link-logo">
+      <img src="img/logo.png" />
+    </a>
+  </ion-nav-buttons>
+
+  <ion-content class="fade-in" overflow-scroll="true">
 
     <!--
     <ion-list class="map-settings">
     <ion-toggle  ng-model="enableGPS">
-        Näytä missä olen
+        Show me
     </ion-toggle>
     </ion-list>
     -->
-    <div
-    id="map">
-    </div>
+    <div id="map"></div>
 
   </ion-content>
 </ion-view>
