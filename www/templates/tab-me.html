@@ -1,0 +1,88 @@
+<ion-view view-title="{{barhopInfo.name || 'Barhop'}}" hide-nav-bar="false">
+
+  <ion-nav-buttons side="left">
+    <a ng-href="/" class="link-logo">
+      <img src="img/logo.png" />
+    </a>
+  </ion-nav-buttons>
+
+  <ion-view-header>
+
+  <ion-content class="fade-in view--settings" ng-class="{completed: stats.getProgress() === 100}">
+
+  <div class="settings">
+    <div class="settings__intro">
+      <a
+        ng-click="toggleEditMode()"
+        class="ion-android-create button-round button-edit"
+      ></a>
+
+
+      <div class="settings__intro__content">
+
+
+        <div class="settings__intro__avatar">
+          <i class="icon icon-not-done ion-android-person"></i>
+          <i class="icon icon-done ion-ribbon-b"></i>
+        </div>
+
+
+        <div ng-if="!editMode" class="settings__username">
+          <span ng-if="username">{{username}}</span>
+          <span class="placeholder" ng-if="!username">Unnamed Bar Hopper</span>
+        </div>
+
+        <form ng-if="editMode" ng-submit="saveUserForm(username);" class="settings__form">
+          <label class="settings__label item-input">
+            <input
+              autocomplete="off"
+              id="input-username"
+              ng-model="username"
+              type="text"
+              class="settings__input"
+              placeholder="Unnamed Bar Hopper">
+          </label>
+
+          <a href
+            ng-click="saveUserForm(username)"
+            ng-disabled="!username"
+            class="button button--save button-assertive button-block"
+            ng-class="{saved: savedUserForm}"
+          >
+            <span class="when-not-saved">Save</span>
+            <span class="when-saved icon--success ion-android-done"></span>
+          </a>
+        </form>
+
+
+        <div class="user__kpis" ng-hide="editMode">
+          <div class="kpi">
+            <span class="value">{{stats.getChecksCount()}}</span>
+            <span class="title">Hops</span>
+          </div>
+          <div class="kpi">
+            <span class="value">{{stats.getProgress()}}%</span>
+            <span class="title">Completed</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-android-person placeholder-icon"></i>
+        <input type="text" placeholder="Your name">
+      </label>
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-assertive">Join {{barhopInfo.name}}</button>
+    </div>
+    -->
+
+  </div>
+
+  </ion-content>
+</ion-view>

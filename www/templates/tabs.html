@@ -1,14 +1,18 @@
-<ion-tabs class="tabs-bottom tabs-icon-top tabs-stable tabs-color-active-assertive">
+<ion-tabs class="tabs-bottom tabs-icon-only tabs-light tabs-color-active-assertive">
 
   <!-- Locations Tab -->
-  <ion-tab title="Juomalat" icon="ion-android-bar" href="#/tab/locations">
+  <ion-tab title="Bars" icon="ion-android-bar" ui-sref="tab.locations({ barhopId: barhopId })">
     <ion-nav-view name="tab-locations"></ion-nav-view>
   </ion-tab>
 
   <!-- Maps Tab -->
-  <ion-tab title="Jämsä" icon="ion-android-map" href="#/tab/map">
+  <ion-tab title="Map" icon="ion-android-map" ui-sref="tab.map({ barhopId: barhopId })">
     <ion-nav-view name="tab-map"></ion-nav-view>
   </ion-tab>
 
+  <!-- Me Tab -->
+  <ion-tab title="Me" icon="ion-ribbon-b" ui-sref="tab.me({ barhopId: barhopId })">
+    <ion-nav-view name="tab-me"></ion-nav-view>
+  </ion-tab>
 
 </ion-tabs>
